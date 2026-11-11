@@ -37,7 +37,7 @@ jobs:
           cache: maven
           cache-dependency-path: api-financial-transaction-service/pom.xml
 
-      - uses: github/codeql-action/init@v3
+      - uses: github/codeql-action/init@v4
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
@@ -47,6 +47,6 @@ jobs:
         working-directory: api-financial-transaction-service
         run: ./mvnw -B -ntp -DskipTests package
 
-      - uses: github/codeql-action/analyze@v3
+      - uses: github/codeql-action/analyze@v4
         with:
           category: /language:${{ matrix.language }}
